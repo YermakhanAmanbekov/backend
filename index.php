@@ -1,7 +1,6 @@
 <?php
 include_once("config.php");
-
-$rows = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
+$rows = mysqli_query($mysqli, "SELECT * FROM users");
 ?>
 
 <html>
@@ -10,17 +9,17 @@ $rows = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
 </head>
 
 <body>
-    <a href="add.html">You can add new user</a>
+    <a href="create.html">You can add new user</a>
 
     <table>
         <tr>
-            <td>Id</td>
             <td>Name</td>
             <td>Surname</td>
             <td>Email</td>
+            <td>Update</td>
         </tr>
         <?php
-        while($row = mysqli_fetch_array($row)) {
+        while($row = mysqli_fetch_array($rows)) {
             echo "<td>".$row['id']."</td>";
             echo "<td>".$row['name']."</td>";
             echo "<td>".$row['surname']."</td>";
